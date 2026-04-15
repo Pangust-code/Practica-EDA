@@ -1,0 +1,4 @@
+variable,corr_with_survived
+Pclass,-0.33848103596101514
+Fare,0.2573065223849626
+Parch,0.08162940708348335

@@ -1,0 +1,22 @@
+Exploracion inicial del dataset Titanic
+Fecha: 2026-04-15 15:03:04
+Fuente: https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv
+
+Filas (observaciones): 891
+Columnas (variables): 12
+
+Tipos de datos:
+PassengerId      int64
+Survived         int64
+Pclass           int64
+Name               str
+Sex                str
+Age            float64
+SibSp            int64
+Parch            int64
+Ticket             str
+Fare           float64
+Cabin              str
+Embarked           str
+
+Variable objetivo Y: Survived (0 no sobrevivio, 1 sobrevivio)
