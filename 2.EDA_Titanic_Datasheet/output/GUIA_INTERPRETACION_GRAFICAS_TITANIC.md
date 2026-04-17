@@ -48,20 +48,22 @@ Como interpretarla:
 Evita este error:
 - No usar solo conteos absolutos; verifica tambien tasas relativas por clase.
 
-## 4. Boxplot de tarifa por supervivencia
-Grafica: `04_boxplot_fare_survived.png`
+## 4. Lineas de supervivencia por clase y genero
+Grafica: `04_line_survival_sex_class.png`
 
 Que muestra:
-- Distribucion de `Fare` separada por `Survived`.
-- Mediana, rango intercuartil y outliers.
+- Eje X: `Pclass` (1, 2, 3).
+- Eje Y: probabilidad promedio de `Survived`.
+- Dos lineas: hombres (`male`) y mujeres (`female`).
 
 Como interpretarla:
-- Mediana mas alta en `Survived=1` sugiere asociacion positiva entre tarifa y supervivencia.
-- Cajas anchas indican mayor variabilidad en tarifas.
-- Outliers altos representan boletos de tarifa muy superior al resto.
+- Prioridad de genero: si la linea de mujeres se mantiene por encima de la de hombres en todas las clases, las mujeres tuvieron mayor supervivencia.
+- Efecto de clase social: si ambas lineas descienden de clase 1 a 3, la supervivencia cae al bajar de clase.
+- Destino de los hombres: si la linea de hombres en clase 2 y 3 queda cerca de 0.10-0.15, su supervivencia fue muy baja.
+- Comparacion clave: si el punto de hombres en clase 1 queda por debajo del punto de mujeres en clase 3, incluso hombres de primera clase sobrevivieron menos que mujeres de tercera.
 
 Evita este error:
-- No eliminar outliers automaticamente; pueden ser informacion real de pasajeros premium.
+- No interpretar estas diferencias como causalidad pura; son asociaciones observadas en el dataset.
 
 ## 5. Heatmap de correlacion
 Grafica: `05_heatmap_correlacion.png`
@@ -80,6 +82,6 @@ Evita este error:
 
 ## Lectura integrada recomendada
 1. Inicia con histograma para contexto poblacional.
-2. Sigue con barras y boxplot para diferencias entre clases de supervivencia.
+2. Sigue con barras de conteo y lineas por sexo/clase para entender brechas de supervivencia.
 3. Usa scatter para detectar patrones mixtos entre edad, tarifa y clase objetivo.
 4. Finaliza con heatmap para priorizar variables de modelado.

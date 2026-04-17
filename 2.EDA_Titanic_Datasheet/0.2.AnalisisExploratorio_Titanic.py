@@ -189,11 +189,26 @@ def visualizations(df: pd.DataFrame, corr_df: pd.DataFrame) -> None:
     plt.savefig(os.path.join(PLOTS_DIR, "03_bar_pclass_survived.png"), dpi=150)
     plt.close()
 
-    plt.figure(figsize=(8, 4))
-    sns.boxplot(data=df, x="Survived", y="Fare", color="#9ecae1")
-    plt.title("Outliers de tarifa por supervivencia")
+    plt.figure(figsize=(8, 4.8))
+    sns.pointplot(
+        data=df,
+        x="Pclass",
+        y="Survived",
+        hue="Sex",
+        estimator=np.mean,
+        errorbar=None,
+        markers=["o", "o"],
+        linestyles=["-", "-"],
+        palette={"male": "#1f77b4", "female": "#ff7f0e"},
+        order=[1, 2, 3],
+    )
+    plt.title("Supervivencia por clase y genero")
+    plt.xlabel("Clase de boleto (1 = alta, 3 = baja)")
+    plt.ylabel("Probabilidad de supervivencia")
+    plt.ylim(0, 1)
+    plt.legend(title="Sexo")
     plt.tight_layout()
-    plt.savefig(os.path.join(PLOTS_DIR, "04_boxplot_fare_survived.png"), dpi=150)
+    plt.savefig(os.path.join(PLOTS_DIR, "04_line_survival_sex_class.png"), dpi=150)
     plt.close()
 
     plt.figure(figsize=(10, 8))

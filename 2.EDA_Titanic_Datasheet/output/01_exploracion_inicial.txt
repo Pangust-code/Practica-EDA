@@ -1,5 +1,5 @@
 Exploracion inicial del dataset Titanic
-Fecha: 2026-04-15 15:03:04
+Fecha: 2026-04-17 11:50:54
 Fuente: https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv
 
 Filas (observaciones): 891

@@ -26,7 +26,7 @@ El presente trabajo desarrolla un analisis exploratorio de datos sobre un conjun
 1. Carga y tipificacion de datos.
 2. Deteccion de faltantes y duplicados.
 3. Estadistica descriptiva.
-4. Visualizacion (histograma, scatter, barras, boxplot, heatmap).
+4. Visualizacion (histograma, scatter, barras de conteo, lineas por sexo/clase y heatmap).
 5. Analisis de frecuencias categoricas.
 6. Correlacion con Y.
 7. Deteccion de outliers por IQR.

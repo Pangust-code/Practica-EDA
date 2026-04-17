@@ -5,7 +5,7 @@ Este archivo te indica que escribir en cada seccion del informe para que quede a
 ## 1. Portada
 Incluye:
 - Titulo de la practica: Analisis exploratorio de datos< Extraccion de caracteristicas y presentacion de resultados
-- Materia: INteligencia Artificial
+- Materia: Inteligencia Artificial
 - Nombres de los estudiantes:Est. Valeria Mantilla y Daniel Guanga
 - Docente: Ing. Remigio Hurtado
 
@@ -31,7 +31,7 @@ Describe en orden:
 1. Carga y tipificacion de datos.
 2. Deteccion de faltantes y duplicados.
 3. Estadistica descriptiva.
-4. Visualizacion (histograma, scatter, barras, boxplot, heatmap).
+4. Visualizacion (histograma, scatter, barras de conteo, lineas por sexo/clase y heatmap).
 5. Analisis de frecuencias categoricas.
 6. Correlacion con Y.
 7. Deteccion de outliers por IQR.
