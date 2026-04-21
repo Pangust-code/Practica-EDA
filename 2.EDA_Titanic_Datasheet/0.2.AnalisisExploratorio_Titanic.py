@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+from matplotlib.ticker import MultipleLocator, PercentFormatter
 
 DATA_URL = "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -204,8 +205,11 @@ def visualizations(df: pd.DataFrame, corr_df: pd.DataFrame) -> None:
     )
     plt.title("Supervivencia por clase y genero")
     plt.xlabel("Clase de boleto (1 = alta, 3 = baja)")
-    plt.ylabel("Probabilidad de supervivencia")
+    plt.ylabel("Probabilidad de supervivencia (%)")
     plt.ylim(0, 1)
+    ax = plt.gca()
+    ax.yaxis.set_major_locator(MultipleLocator(0.05))
+    ax.yaxis.set_major_formatter(PercentFormatter(xmax=1, decimals=0))
     plt.legend(title="Sexo")
     plt.tight_layout()
     plt.savefig(os.path.join(PLOTS_DIR, "04_line_survival_sex_class.png"), dpi=150)
