@@ -93,6 +93,7 @@ def build_pipeline() -> Pipeline:
         steps=[
             ("imputer", SimpleImputer(strategy="most_frequent")),
             ("onehot", make_one_hot_encoder()),
+            ("scaler", StandardScaler()),
         ]
     )
 
@@ -133,8 +134,33 @@ def encode_dataset(model: Pipeline, X: pd.DataFrame, y: pd.Series) -> pd.DataFra
     transformed = model.named_steps["preprocessor"].transform(X)
     feature_names = model.named_steps["preprocessor"].get_feature_names_out()
     transformed_df = pd.DataFrame(transformed, columns=feature_names)
-    transformed_df["nivel_satisfaccion"] = y.to_numpy()
+    
+    # Estandarizar tambien la variable objetivo
+    target_scaler = StandardScaler()
+    y_transformed = target_scaler.fit_transform(y.values.reshape(-1, 1)).flatten()
+    transformed_df["nivel_satisfaccion"] = y_transformed
     return transformed_df
+
+
+def validate_transformations(model: Pipeline, X: pd.DataFrame, y: pd.Series) -> None:
+    """Valida que las transformaciones tengan media 0 y desviáción estándar 1"""
+    transformed = model.named_steps["preprocessor"].transform(X)
+    feature_names = model.named_steps["preprocessor"].get_feature_names_out()
+    
+    print("\nValidacion de transformaciones:")
+    print("="*60)
+    for i, feature in enumerate(feature_names):
+        media = float(np.mean(transformed[:, i]))
+        desv_std = float(np.std(transformed[:, i], ddof=0))
+        print(f"{feature:25} | Media: {media:8.6f} | Desv.Est: {desv_std:8.6f}")
+    
+    # Validar tambien la variable objetivo
+    target_scaler = StandardScaler()
+    y_transformed = target_scaler.fit_transform(y.values.reshape(-1, 1)).flatten()
+    media_y = float(np.mean(y_transformed))
+    desv_std_y = float(np.std(y_transformed, ddof=0))
+    print(f"{'nivel_satisfaccion':25} | Media: {media_y:8.6f} | Desv.Est: {desv_std_y:8.6f}")
+    print("="*60)
 
 
 def predict_new_sample(model: Pipeline, sexo: str, edad: float, pais: str) -> pd.DataFrame:
@@ -197,6 +223,7 @@ def main() -> None:
     )
 
     model.fit(X, y)
+    validate_transformations(model, X, y)
     save_model(model, MODEL_PATH)
     print(f"Modelo guardado en: {MODEL_PATH}")
 
