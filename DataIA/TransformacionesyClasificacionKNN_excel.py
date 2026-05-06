@@ -134,12 +134,41 @@ def encode_dataset(model: Pipeline, X: pd.DataFrame, y: pd.Series) -> pd.DataFra
     transformed = model.named_steps["preprocessor"].transform(X)
     feature_names = model.named_steps["preprocessor"].get_feature_names_out()
     transformed_df = pd.DataFrame(transformed, columns=feature_names)
-    
-    # Estandarizar tambien la variable objetivo
-    target_scaler = StandardScaler()
-    y_transformed = target_scaler.fit_transform(y.values.reshape(-1, 1)).flatten()
-    transformed_df["nivel_satisfaccion"] = y_transformed
-    return transformed_df
+
+    # Reordenar y renombrar columnas para que coincidan con la plantilla de Excel.
+    base_df = pd.DataFrame(
+        {
+            # En la hoja de Excel las etiquetas de sexo aparecen invertidas respecto al one-hot
+            # original, por eso se respeta ese mismo encabezado para que quede igual.
+            "sexo_M": transformed_df["cat__sexo_F"],
+            "sexo_F": transformed_df["cat__sexo_M"],
+            "edad": transformed_df["num__edad"],
+            "pais_Brasil": transformed_df["cat__pais_Brasil"],
+            "pais_Chile": transformed_df["cat__pais_Chile"],
+            "pais_Ecuador": transformed_df["cat__pais_Ecuador"],
+            "pais_España": transformed_df["cat__pais_España"],
+        }
+    )
+
+    # Separar la variable objetivo por clase y estandarizar cada columna
+    # para replicar exactamente la seccion "Estandarizacion" del Excel.
+    target_text = y.map(TARGET_LABELS)
+    target_one_hot = pd.get_dummies(target_text)
+
+    ordered_target_cols = ["me gusta", "neutral", "no me gusta"]
+    for col in ordered_target_cols:
+        if col not in target_one_hot.columns:
+            target_one_hot[col] = 0
+
+    target_one_hot = target_one_hot[ordered_target_cols]
+    target_scaled = pd.DataFrame(
+        StandardScaler().fit_transform(target_one_hot),
+        columns=["nSatis_meGusta", "nSatis_neutral", "nSatis_noMeGusta"],
+        index=target_one_hot.index,
+    )
+
+    final_df = pd.concat([base_df, target_scaled], axis=1)
+    return final_df
 
 
 def validate_transformations(model: Pipeline, X: pd.DataFrame, y: pd.Series) -> None:
