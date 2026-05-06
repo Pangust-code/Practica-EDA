@@ -1,0 +1,146 @@
+0001: FORMATO DE GUÍA DE PRÁCTICA DE LABORATORIO / TALLERES / CENTROS DE SIMULACIÓN – PARA DOCENTES
+0002: CIENCIAS DE LA COMPUTACIÓN
+0003: INTELIGENCIA ARTIFICIAL
+0004: MACHINE LEARNING
+0005: TÍTULO PRÁCTICA
+0006: : 
+0007: Transformaciones
+0008:  
+0009: y clasificador KNN
+0010: OBJETIVO
+0011: :
+0012: Desarrolla 
+0013: modelos
+0014:  para realizar la clasifi
+0015: cación de patrones mediante
+0016:  
+0017: inteligencia artificial y machine 
+0018: learning
+0019: INSTRUCCIONES
+0020: :
+0021: Revisar el contenido te
+0022: órico del tema
+0023: Profundizar los conocimientos 
+0024: revisando los libros guías, los enlaces contenidos en 
+0025: el material de
+0026:  aprendizaje y la documentación disponible en fuentes académicas en línea
+0027: Desarrollar las actividades de la sección “
+0028: ACTIVIDADES POR DESARROLLAR
+0029: ”
+0030: Subir al AVAC las evidencias de desarrollo de 
+0031: las 
+0032: actividades
+0033: ACTIVIDADES POR DESARROLLAR
+0034: 1. 
+0035: Analizar el 
+0036: dataset
+0037: :
+0038: Describir en la siguiente tabla cada variable, indicar el tipo de variable y técnica o técnicas a utilizar para transformar 
+0039: cada
+0040:  variable. 
+0041: Luego
+0042: ,
+0043:  ejecutar las transformaciones
+0044: .
+0045: Basarse en el ejemplo de la siguiente 
+0046: tabla
+0047:  de diseño de transformaciones
+0048: :
+0049: Id
+0050: Variable
+0051: Descripción breve
+0052: Tipo
+0053: Técnica 
+0054: de transformación 
+0055: a aplicar
+0056: 1
+0057: sexo
+0058: M (masculino) o F (femenino)
+0059: Categórica nominal
+0060: Sistema binario o 
+0061: coding
+0062: Estandarización
+0063: 2
+0064: edad
+0065: Años de edad
+0066: Numérica discreta
+0067: Estandarización
+0068: 3
+0069: nivelformación
+0070: Es el nivel de educación: 
+0071: primaria, secundaria o superior
+0072: Categórica ordinal
+0073: Ordinal
+0074: Estandarización
+0075: …
+0076: …
+0077: …
+0078: 2. Realizar 
+0079: la 
+0080: transformación de variables categóricas y transformaciones numéricas en Excel, Orange 3 y Python. El 
+0081: dataset
+0082:  transformado debería ser igual en las 3 herramientas. 
+0083: 3. Aplicar KNN en Excel al 
+0084: siguiente 
+0085: dataset
+0086: . 
+0087: Para ello, 
+0088: aplicar la
+0089: s métricas de
+0090:  distancia 
+0091: E
+0092: uclídea y 
+0093: Manhattan
+0094:  con K=2. 
+0095: Criterio
+0096: Valor
+0097: Puntaje obtenido 
+0098: Observación
+0099: 1. Transformaciones en Excel
+0100: 1 
+0101: 2
+0102: .
+0103: T
+0104: ransformaciones en 
+0105: Orange
+0106: 1
+0107: 3
+0108: .Transformaciones en 
+0109: Python
+0110: 2
+0111: 4.KNN en Excel
+0112: 1
+0113: RESULTADO(S) OBTENIDO(S)
+0114: :
+0115: Desarrolla
+0116: n
+0117:  
+0118: modelos
+0119:  para realizar la clasifi
+0120: cación de patrones mediante inteligencia artificial y machine 
+0121: learning
+0122: CONCLUSIONES
+0123: :
+0124: Los estudiantes 
+0125: d
+0126: esarrolla
+0127: n
+0128:  
+0129: modelos
+0130:  para realizar la clasifi
+0131: cación de patrones 
+0132: mediante inteligencia artificial y machine 
+0133: learning
+0134: RECOMENDACIONES
+0135: :
+0136: Revisar la información proporcionada por el docente previo a la práctica.
+0137: Haber asistido a las sesiones de clase.
+0138: Consultar con el docente las dudas que puedan surgir al momento de realizar la práctica.
+0139: Docente
+0140: : 
+0141: Ing. 
+0142: Remigio Hurtado
+0143:  Ortiz, PhD.
+0144: Firma
+0145: :
+0146:  ______________________________

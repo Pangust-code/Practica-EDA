@@ -1,0 +1,89 @@
+--- PAGE 1 ---
+CIENCIAS DE LA COMPUTACIÓN Docente: Ing. Remigio Hurtado, PhD. 
+INTELIGENCIA ARTIFICIAL 
+MACHINE LEARNING  
+ 
+Resolución CS N° 076-04-2016-04-20 
+ 
+ 
+FORMATO DE GUÍA DE PRÁCTICA DE LABORATORIO / TALLERES / 
+CENTROS DE SIMULACIÓN – PARA DOCENTES 
+ 
+CIENCIAS DE LA COMPUTACIÓN INTELIGENCIA ARTIFICIAL 
+MACHINE LEARNING 
+TÍTULO PRÁCTICA: Transformaciones y clasificador KNN 
+OBJETIVO: 
+Desarrolla modelos para realizar la clasificación de patrones mediante inteligencia artificial y machine learning 
+ 
+INSTRUCCIONES: 
+1. Revisar el contenido teórico del tema 
+2. Profundizar los conocimientos revisando los libros guías, los enlaces contenidos en el material de  aprendizaje y la 
+documentación disponible en fuentes académicas en línea 
+3. Desarrollar las actividades de la sección “ACTIVIDADES POR DESARROLLAR” 
+4. Subir al AVAC las evidencias de desarrollo de las actividades 
+ACTIVIDADES POR DESARROLLAR 
+ 
+1. Analizar el dataset: 
+ 
+ 
+ 
+Describir en la siguiente tabla cada variable, indicar el tipo de variable y técnica o técnicas a utilizar para transformar cada 
+variable. Luego, ejecutar las transformaciones. 
+ 
+Basarse en el ejemplo de la siguiente tabla de diseño de transformaciones: 
+Id Variable Descripción breve Tipo Técnica de transformación a aplicar 
+1 sexo M (masculino) o F 
+(femenino) 
+Categórica 
+nominal 
+Sistema binario o coding 
+ 
+Estandarización 
+2 edad Años de edad Numérica 
+discreta 
+Estandarización 
+3 nivelformación Es el nivel de 
+educación:  
+primaria, secundaria 
+o superior 
+Categórica 
+ordinal 
+Ordinal 
+ 
+Estandarización 
+… …  …  
+ 
+2. Realizar la transformación de variables categóricas y transformaciones numéricas en Excel, Orange 3 y Python. El dataset 
+transformado debería ser igual en las 3 herramientas.  
+3. Aplicar KNN en Excel al siguiente dataset. Para ello, aplicar las métricas de distancia Euclídea y Manhattan con K=2.
+
+--- PAGE 2 ---
+Criterio Valor Puntaje obtenido  Observación 
+1. Transformaciones 
+en Excel 
+1    
+2.Transformaciones 
+en Orange 
+1   
+3.Transformaciones 
+en Python 
+2   
+4.KNN en Excel 1   
+ 
+ 
+RESULTADO(S) OBTENIDO(S): 
+Desarrollan modelos para realizar la clasificación de patrones mediante inteligencia artificial y machine learning 
+ 
+CONCLUSIONES: 
+Los estudiantes desarrollan modelos para realizar la clasificación de patrones mediante inteligencia artificial y machine learning 
+ 
+RECOMENDACIONES: 
+• Revisar la información proporcionada por el docente previo a la práctica.  
+• Haber asistido a las sesiones de clase. 
+• Consultar con el docente las dudas que puedan surgir al momento de realizar la práctica.  
+ 
+ 
+Docente: Ing. Remigio Hurtado Ortiz, PhD. 
+ 
+ 
+Firma: ______________________________
