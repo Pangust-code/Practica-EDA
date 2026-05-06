@@ -150,24 +150,11 @@ def encode_dataset(model: Pipeline, X: pd.DataFrame, y: pd.Series) -> pd.DataFra
         }
     )
 
-    # Separar la variable objetivo por clase y estandarizar cada columna
-    # para replicar exactamente la seccion "Estandarizacion" del Excel.
-    target_text = y.map(TARGET_LABELS)
-    target_one_hot = pd.get_dummies(target_text)
-
-    ordered_target_cols = ["me gusta", "neutral", "no me gusta"]
-    for col in ordered_target_cols:
-        if col not in target_one_hot.columns:
-            target_one_hot[col] = 0
-
-    target_one_hot = target_one_hot[ordered_target_cols]
-    target_scaled = pd.DataFrame(
-        StandardScaler().fit_transform(target_one_hot),
-        columns=["nSatis_meGusta", "nSatis_neutral", "nSatis_noMeGusta"],
-        index=target_one_hot.index,
+    target_scaled = StandardScaler().fit_transform(y.to_numpy().reshape(-1, 1)).ravel()
+    final_df = pd.concat(
+        [base_df, pd.Series(target_scaled, name="nivelSatisfaccion")],
+        axis=1,
     )
-
-    final_df = pd.concat([base_df, target_scaled], axis=1)
     return final_df
 
 
@@ -183,12 +170,6 @@ def validate_transformations(model: Pipeline, X: pd.DataFrame, y: pd.Series) -> 
         desv_std = float(np.std(transformed[:, i], ddof=0))
         print(f"{feature:25} | Media: {media:8.6f} | Desv.Est: {desv_std:8.6f}")
     
-    # Validar tambien la variable objetivo
-    target_scaler = StandardScaler()
-    y_transformed = target_scaler.fit_transform(y.values.reshape(-1, 1)).flatten()
-    media_y = float(np.mean(y_transformed))
-    desv_std_y = float(np.std(y_transformed, ddof=0))
-    print(f"{'nivel_satisfaccion':25} | Media: {media_y:8.6f} | Desv.Est: {desv_std_y:8.6f}")
     print("="*60)
 
 
