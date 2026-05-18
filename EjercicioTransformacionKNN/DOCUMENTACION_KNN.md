@@ -1,4 +1,4 @@
-# Documentación resumida y amigable — Transformaciones y KNN
+    # Documentación resumida y amigable — Transformaciones y KNN
 
 Este archivo reúne lo esencial del proyecto en lenguaje sencillo, con pasos para ejecutar y entender el código si no eres experto en Python.
 
