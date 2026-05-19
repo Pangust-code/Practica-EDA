@@ -26,22 +26,25 @@ print("¡Modelo entrenado con éxito!\n")
 
 # Crear 2 muestras de agua completamente nuevas
 nuevos_samples = pd.DataFrame({
-    'ph': [3.5, 5.6],                       # Muestra 1 es ácida, Muestra 2 es normal
-    'Hardness': [300.0, 190.0],
-    'Solids': [40000.0, 13800.0],           # Muestra 1 tiene demasiados sólidos
-    'Chloramines': [9.0, 6.5],
-    'Sulfate': [200.0, 369.0],
-    'Conductivity': [600.0, 420.0],
-    'Organic_carbon': [25.0, 18.0],
-    'Trihalomethanes': [120.0, 80.0],
-    'Turbidity': [6.5, 4.5]                 # Muestra 1 está muy turbia
+# Sample 1: Tomebamba en lluvia | Sample 2: Yanuncay filtrado
+    'ph': [6.0, 5.7],                       
+    'Hardness': [250.0, 180.0],
+    'Solids': [28000.0, 14000.0],           # Tomebamba tiene muchos sólidos por la lluvia
+    'Chloramines': [4.0, 6.5],              # Yanuncay tiene cloro residual del tratamiento
+    'Sulfate': [250.0, 369.0],
+    'Conductivity': [300.0, 400.0],
+    'Organic_carbon': [12.0, 18.0],
+    'Trihalomethanes': [50.0, 80.0],
+    'Turbidity': [6.0, 4.0]                 # Tomebamba muy turbio (6.0), Yanuncay claro (4.0)
 })
 
 # Realizar la predicción
 predicciones = modelo_nb.predict(nuevos_samples)
 
-# Imprimir los resultados
-print("Resultados de la Predicción:")
+# Imprimir los resultados con nombres personalizados
+nombres_muestras = ["Río Tomebamba (Creciente)", "Río Yanuncay (Post-Filtro)"]
+
+print("--- RESULTADOS DE PREDICCIÓN LOCAL (CUENCA) ---")
 for i, prediccion in enumerate(predicciones):
     estado = "POTABLE" if prediccion == 1 else "NO POTABLE"
-    print(f"Sample {i+1} ha sido clasificado como: {estado} (Clase {prediccion})")
+    print(f"La muestra del {nombres_muestras[i]} ha sido clasificada como: {estado} (Clase {prediccion})")
